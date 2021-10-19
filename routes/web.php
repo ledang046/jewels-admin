@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RatingController;
 use App\Models\Coupon;
 use App\Models\Customuser;
 
@@ -70,6 +71,8 @@ Route::group(["prefix"=>"admin"], function() {
 /* Coupon */
     Route::resource('coupons', CouponController::class);
 
+/* Rating */
+    Route::resource('rating', RatingController::class);
 });
  
 Route::get('/one-many',function()

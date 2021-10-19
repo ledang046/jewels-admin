@@ -40,7 +40,7 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{route('rating.index')}}">
         <i class="menu-icon fas fa-star"></i> Rating  
         </a>
     </li>
