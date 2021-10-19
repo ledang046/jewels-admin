@@ -1,0 +1,29 @@
+/**
+ * product_read.blade.php
+ */
+.btn_arrange, .btn_arrange:hover {
+	background-color: #e8e9ef;
+	border: none;
+	color: #868e96;
+	padding: 0;
+}
+.btn-add {
+	background-color: #00c292;
+	border-radius: 5px;
+	color:  white;
+}
+
+/**
+ * product_create_update.blade.php
+ */
+.btn_create_update {
+ 	background-color: #00c292;
+ 	color: white;
+}
+#search-btn{
+	background: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transform: translate(-110%);
+}
