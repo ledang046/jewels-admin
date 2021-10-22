@@ -45,7 +45,7 @@
         </a>
     </li>
      <li>
-        <a href="">
+        <a href="{{route('comments.index')}}">
         <i class="menu-icon fas fa-comments"></i> Comment  
         </a>
     </li>

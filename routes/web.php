@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CouponController;
 use App\Http\Controllers\CustomuserController;
 use App\Http\Controllers\HomeController;
@@ -73,7 +74,14 @@ Route::group(["prefix"=>"admin"], function() {
 
 /* Rating */
     Route::resource('rating', RatingController::class);
+
+/* Comment */
+    Route::resource('comments', CommentController::class);
+    Route::get('/change-comment-status/{id}',[CommentController::class,'changeCommentStatus']);
 });
+
+
+
  
 Route::get('/one-many',function()
 {
