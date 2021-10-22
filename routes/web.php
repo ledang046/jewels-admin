@@ -78,6 +78,7 @@ Route::group(["prefix"=>"admin"], function() {
 /* Comment */
     Route::resource('comments', CommentController::class);
     Route::get('/change-comment-status/{id}',[CommentController::class,'changeCommentStatus']);
+    Route::post('/reply-comment',[CommentController::class,'replyComment']);
 });
 
 

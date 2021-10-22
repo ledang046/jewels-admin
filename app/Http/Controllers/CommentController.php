@@ -13,10 +13,20 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $data = Comment::orderBy("id","asc")
-        ->paginate(15);
-        
-        return view('backend.comments_read', ["data" => $data]);
+        $data = Comment::orderBy("display","asc")->get();
+        return view('backend.comments_read')->with(compact('data'));
+    }
+
+    public function replyComment(Request $request)
+    {
+        $data = $request->all();
+        $cmt = new Comment();
+        $cmt->comment = $data['comment'];
+        $cmt->product_id = $data['comment_product_id'];
+        $cmt->reply_comment_id = $data['comment_id'];
+        $cmt->display = 1;
+        $cmt->name = "Admin";
+        $cmt->save();
     }
 
     public function changeCommentStatus($id)

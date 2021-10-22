@@ -1,6 +1,11 @@
 $.noConflict();
 
 jQuery(document).ready(function($) {
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+		});
 
 	"use strict";
 
@@ -85,6 +90,26 @@ jQuery(document).ready(function($) {
 		} 
 		
 	});
-  
+	// Comment Reply 
+    $('.btn-reply-comment').on('click', function(){
+		var comment_id = $(this).data('comment_id');
+
+		var comment = $('.reply_comment_' + comment_id).val();
+
+		var comment_product_id = $(this).data('product_id');
+		alert(comment_id);
+		alert(comment);
+		alert(comment_product_id);
+		$.ajax({
+			url:"http://localhost/jewels-admin/public/admin/reply-comment",
+			method:"POST",
+			data:{comment:comment,comment_id:comment_id,comment_product_id:comment_product_id},
+			success:function(data){	
+				alert("Successful!");
+
+			}
+		});
+    });
+    
  
 });

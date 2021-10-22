@@ -11,7 +11,7 @@ class Comment extends Model
     public $timestamps = false;
     protected $fillable =
     [
-        'comment','name','date','product_id'
+        'comment','name','date','product_id,display,reply_comment_id'
     ];
     protected $table = 'comments';
 

@@ -14,6 +14,7 @@
                                 </div>
                             </div>
                             <div class="card-body">
+                            <div class="notify-comment"></div>
                             <div class="row">
                                     <div  class="col-sm-12 col-md-6 ">
                                         <div id="bootstrap-data-table_filter" class="dataTables_filter">
@@ -34,12 +35,14 @@
                                             <th class="js-sort-string">Name</th>
                                             <th>Product</th>
                                             <th class="js-sort-string">Comment</th>
+                                            <th>Reply</th>
                                             <th>Date</th>
                                             <th></th>
                                         </tr>   
                                     </thead>
                                     <tbody>
-                                        @foreach($data as $rows)
+                                        @foreach($data as $key => $rows)
+                                        @if($rows->name != "Admin")
                                         <tr>
                                             <td>
                                                 @if($rows->display == 1)
@@ -51,7 +54,23 @@
                                             <td>{{$rows->id}}</td>
                                             <td>{{$rows->name}}</td>
                                             <td>{{$rows->product->name}}</td>
-                                            <td>{{$rows->comment}}</td>
+                                            <td>{{$rows->comment}}
+                                                @if($rows->display == 1)
+                                                <br>
+                                                </br><textarea class="form-control reply_comment_{{$rows->id}}"  rows="3" placeholder="reply comment..."></textarea> 
+                                                </br><button class="btn btn-primary btn-reply-comment" data-product_id="{{$rows->product_id}}" data-comment_id="{{$rows->id}}">Reply</button>
+                                                @else
+                                                @endif       
+                                            </td>
+                                            <td style="width:180px;">
+                                                
+                                                @foreach($data as $key => $cmt)
+                                                @if($cmt->reply_comment_id == $rows->id)
+                                                 Admin: {{$cmt->comment}}</br>
+                                                @else
+                                                @endif
+                                                @endforeach
+                                            </td>
                                             <td>{{$rows->date}}</td>
                                             <td>
                                                 <form style="display:inline;" action="{{ url('admin/commments/'.$rows->id) }}" onsubmit="return confirm('Are you sure you want to delete?');" method="POST">
@@ -61,21 +80,19 @@
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endif
                                        @endforeach
                                     </tbody>
                                 </table>
                                 <nav aria-label="Page navigation example">
                                     <ul class="pagination justify-content-center">
-                                      {{ $data->links() }}
+                                   
                                     </ul>
                                 </nav>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-
 @endsection

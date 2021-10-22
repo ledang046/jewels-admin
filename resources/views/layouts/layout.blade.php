@@ -9,7 +9,8 @@
     <title>Jewels Admin</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!--Sử dụng khi k dùng form submit -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
     <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
     <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -228,5 +229,6 @@
     <script src="{{asset('backend/js/sort-table.min.js')}}"></script>
     
     <!--Local Stuff-->
+   
 </body>
 </html>
