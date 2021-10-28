@@ -18,7 +18,7 @@
                             <div class="row">
                                     <div  class="col-sm-12 col-md-6 ">
                                         <div id="bootstrap-data-table_filter" class="dataTables_filter">
-                                            <form method="get" action="{{route('cate.search')}}"> 
+                                            <form method="get" action=""> 
                                             <label class="d-flex">
                                                 <input type="search" placeholder="Search" name="key" class="form-control form-control-sm" placeholder="" aria-controls="bootstrap-data-table">
                                                 <button id="search-btn" class="fas fa-search" type="submit"></button>
